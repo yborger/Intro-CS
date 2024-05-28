@@ -1,0 +1,115 @@
+  ########### Compile: 
+gcc -g -Wall -Wvla  -o prog prog.c   
+
+ ######### No repeat draw: 
+This program computes the average of a user specified number of random numbers from the range 0 to N, N specified by the user. 
+Enter the number of random values: 
+Enter the largest value in the range: 
+
+The average of 500 random values in the range [0,100] is 50.582001
+
+
+Now I'm going to draw a pretty picure for you!
+Enter a value between 3 and 30
+value:        *
+      ***
+     *****
+    *******
+   *********
+  ***********
+ *************
+***************
+
+Do you want to see another one? Enter 0 for no, 1 for yes
+value: 
+Bye bye
+
+
+ ######### repeat draw: 
+This program computes the average of a user specified number of random numbers from the range 0 to N, N specified by the user. 
+Enter the number of random values: 
+Enter the largest value in the range: 
+
+The average of 500 random values in the range [0,20] is 9.668000
+
+
+Now I'm going to draw a pretty picure for you!
+Enter a value between 3 and 30
+value:        *
+      ***
+     *****
+    *******
+   *********
+  ***********
+ *************
+***************
+
+Do you want to see another one? Enter 0 for no, 1 for yes
+value: 
+Enter a value between 3 and 30
+value:                  *
+                ***
+               *****
+              *******
+             *********
+            ***********
+           *************
+          ***************
+         *****************
+        *******************
+       *********************
+      ***********************
+     *************************
+    ***************************
+   *****************************
+  *******************************
+ *********************************
+***********************************
+
+Do you want to see another one? Enter 0 for no, 1 for yes
+value: 
+Bye bye
+
+
+ ######### error input handling: 
+This program computes the average of a user specified number of random numbers from the range 0 to N, N specified by the user. 
+Enter the number of random values: Try again, -4 is not a positive value.Enter the number of random values: 
+Enter the largest value in the range: Try again, -8 has to be larger than 0.
+Enter the largest value in the range: 
+
+The average of 250 random values in the range [0,25] is 12.320000
+
+
+Now I'm going to draw a pretty picure for you!
+Enter a value between 3 and 30
+value: Try again, -9 is not between 3 and 30
+value: Try again, 2 is not between 3 and 30
+value: Try again, 100 is not between 3 and 30
+value:    *
+  ***
+ *****
+*******
+
+Do you want to see another one? Enter 0 for no, 1 for yes
+value: Try again, -9 is not between 0 and 1
+value: Try again, 89 is not between 0 and 1
+value: 
+Enter a value between 3 and 30
+value:             *
+           ***
+          *****
+         *******
+        *********
+       ***********
+      *************
+     ***************
+    *****************
+   *******************
+  *********************
+ ***********************
+*************************
+
+Do you want to see another one? Enter 0 for no, 1 for yes
+value: 
+Bye bye
+

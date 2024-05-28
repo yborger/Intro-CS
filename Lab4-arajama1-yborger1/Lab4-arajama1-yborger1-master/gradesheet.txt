@@ -1,0 +1,33 @@
+
+
+Lab4 : C Pointers and Assembly
+
+Repo arajama1-yborger1
+
+>>  Stats getvalues() comments:
+ 
+
+>>  Stats & sorting comments:
+ Mean/standard deviation calculation should use doubles.
+
+>>  Stats general & misc comments:
+ Memory leak: should free the array at the end of program
+
+>>  Assembly sum.s comments:
+ 
+
+------------------
+Correctness (9pts) 7.5
+
+>>  Program style comments:
+ 
+
+--------------------
+Program style (1pts) 1
+
+-------------------------
+Total (10pts) 8.5
+
+>> Misc & general comments:
+ 
+

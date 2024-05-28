@@ -1,0 +1,79 @@
+gcc -g -Wall -Wvla -Werror -Wno-error=unused-variable -c gol.c
+g++ -g -Wall -Wvla -Werror -Wno-error=unused-variable -o gol gol.o  -lpthread
+/home/scout/admin31/graders/Lab7/Lab7-skim7-yborger1
+-------- partition -------
+[H[2J[3J[H[2J[3J[H[2J[3JTotal time: 0.376 seconds
+After 2 rounds on a 64 by 64 board, the number of live cells after 2 rounds: 16. 
+[H[2J[3J[H[2J[3J[H[2J[3JTotal time: 0.384 seconds
+After 2 rounds on a 64 by 64 board, the number of live cells after 2 rounds: 12. 
+[H[2J[3J[H[2J[3J[H[2J[3JTotal time: 0.334 seconds
+After 2 rounds on a 64 by 64 board, the number of live cells after 2 rounds: 12. 
+[H[2J[3J[H[2J[3J[H[2J[3JTotal time: 0.379 seconds
+After 2 rounds on a 64 by 64 board, the number of live cells after 2 rounds: 14. 
+[H[2J[3J[H[2J[3J[H[2J[3JTotal time: 0.358 seconds
+After 2 rounds on a 64 by 64 board, the number of live cells after 2 rounds: 12. 
+[H[2J[3J[H[2J[3J[H[2J[3JTotal time: 0.373 seconds
+After 2 rounds on a 64 by 64 board, the number of live cells after 2 rounds: 12. 
+[H[2J[3J[H[2J[3J[H[2J[3JTotal time: 0.337 seconds
+After 2 rounds on a 64 by 64 board, the number of live cells after 2 rounds: 16. 
+[H[2J[3J[H[2J[3J[H[2J[3JTotal time: 0.363 seconds
+After 2 rounds on a 64 by 64 board, the number of live cells after 2 rounds: 16. 
+[H[2J[3J[H[2J[3J[H[2J[3JTotal time: 0.340 seconds
+After 2 rounds on a 64 by 64 board, the number of live cells after 2 rounds: 12. 
+[H[2J[3J[H[2J[3J[H[2J[3JTotal time: 0.388 seconds
+After 2 rounds on a 64 by 64 board, the number of live cells after 2 rounds: 12. 
+-------- time -------
+Total time: 17.364 seconds
+After 200 rounds on a 1600 by 1600 board, the number of live cells after 200 rounds: 3. 
+17.38user 0.02system 0:17.40elapsed 99%CPU (0avgtext+0avgdata 21544maxresident)k
+0inputs+0outputs (0major+5083minor)pagefaults 0swaps
+Total time: 8.931 seconds
+After 200 rounds on a 1600 by 1600 board, the number of live cells after 200 rounds: 3. 
+17.86user 0.00system 0:08.94elapsed 199%CPU (0avgtext+0avgdata 21652maxresident)k
+0inputs+8outputs (0major+5089minor)pagefaults 0swaps
+Total time: 4.640 seconds
+After 200 rounds on a 1600 by 1600 board, the number of live cells after 200 rounds: 3. 
+18.54user 0.00system 0:04.65elapsed 398%CPU (0avgtext+0avgdata 21804maxresident)k
+0inputs+8outputs (0major+5098minor)pagefaults 0swaps
+Total time: 4.367 seconds
+After 200 rounds on a 1600 by 1600 board, the number of live cells after 200 rounds: 3. 
+26.69user 0.04system 0:04.38elapsed 610%CPU (0avgtext+0avgdata 21640maxresident)k
+0inputs+0outputs (0major+5102minor)pagefaults 0swaps
+Total time: 4.242 seconds
+After 200 rounds on a 1600 by 1600 board, the number of live cells after 200 rounds: 3. 
+33.58user 0.01system 0:04.25elapsed 789%CPU (0avgtext+0avgdata 21704maxresident)k
+0inputs+0outputs (0major+5118minor)pagefaults 0swaps
+-------- valgrind -------
+==137215== Memcheck, a memory error detector
+==137215== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==137215== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==137215== Command: ./gol ../grower.txt 0 4 0 0
+==137215== 
+Total time: 7.080 seconds
+After 500 rounds on a 64 by 64 board, the number of live cells after 500 rounds: 225. 
+==137215== 
+==137215== HEAP SUMMARY:
+==137215==     in use at exit: 0 bytes in 0 blocks
+==137215==   total heap usage: 11 allocs, 11 frees, 46,968 bytes allocated
+==137215== 
+==137215== All heap blocks were freed -- no leaks are possible
+==137215== 
+==137215== For lists of detected and suppressed errors, rerun with: -s
+==137215== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==137229== Memcheck, a memory error detector
+==137229== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==137229== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==137229== Command: ./gol ../testedges.txt 0 4 0 0
+==137229== 
+Total time: 0.123 seconds
+After 11 rounds on a 16 by 16 board, the number of live cells after 11 rounds: 16. 
+==137229== 
+==137229== HEAP SUMMARY:
+==137229==     in use at exit: 0 bytes in 0 blocks
+==137229==   total heap usage: 11 allocs, 11 frees, 16,248 bytes allocated
+==137229== 
+==137229== All heap blocks were freed -- no leaks are possible
+==137229== 
+==137229== For lists of detected and suppressed errors, rerun with: -s
+==137229== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+--------------------

@@ -1,0 +1,813 @@
+gcc -g -Wall -Wvla -Werror -Wno-error=unused-variable -Wno-error=unused-but-set-variable -c readfile.c
+gcc -g -Wall -Wvla -Werror -Wno-error=unused-variable -Wno-error=unused-but-set-variable -o stats stats.c readfile.o -lm
+gcc -Wall -g -m32 -O0 -fno-asynchronous-unwind-tables -fno-pic -o prog prog.c sum.s
+Output:
+
+Results: 
+-------
+	Num Values:	 16 
+	Min:	 0.500 
+	Max:	 3.000 
+	Mean:	 1.812 
+	Median:	 2.000 
+	Std dev:	 1.031 
+Unused Array Capacity:	 4 
+
+Expected Output:
+
+Results:
+-------
+num values:         16
+       min:      0.500
+       max:      3.000
+      mean:      1.812
+    median:      2.000
+   std dev:      1.031
+unused array capacity: 4
+
+
+
+Output:
+
+Results: 
+-------
+	Num Values:	 30 
+	Min:	 21.000 
+	Max:	 98.000 
+	Mean:	 73.417 
+	Median:	 79.000 
+	Std dev:	 16.372 
+Unused Array Capacity:	 10 
+
+Expected Output:
+
+Results:
+-------
+num values:         30
+       min:     21.000
+       max:     98.000
+      mean:     73.417
+    median:     79.000
+   std dev:     16.372
+unused array capacity: 10
+
+
+
+Output:
+
+Results: 
+-------
+	Num Values:	 110 
+	Min:	 0.333 
+	Max:	 3.000 
+	Mean:	 1.170 
+	Median:	 1.000 
+	Std dev:	 0.816 
+Unused Array Capacity:	 50 
+
+Expected Output:
+
+Results:
+-------
+num values:        110
+       min:      0.333
+       max:      3.000
+      mean:      1.170
+    median:      1.000
+   std dev:      0.816
+unused array capacity: 50
+
+
+
+Valgrind output:
+
+==1362746== Memcheck, a memory error detector
+==1362746== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==1362746== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==1362746== Command: ./stats ../big.txt
+==1362746== 
+==1362746== Conditional jump or move depends on uninitialised value(s)
+==1362746==    at 0x489778C: sqrt (w_sqrt_compat.c:31)
+==1362746==    by 0x1098FB: findStddev (stats.c:210)
+==1362746==    by 0x109487: main (stats.c:70)
+==1362746== 
+==1362746== Conditional jump or move depends on uninitialised value(s)
+==1362746==    at 0x4A331F8: __printf_fp_l (printf_fp.c:387)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Conditional jump or move depends on uninitialised value(s)
+==1362746==    at 0x4A33212: __printf_fp_l (printf_fp.c:387)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Conditional jump or move depends on uninitialised value(s)
+==1362746==    at 0x4A2ECB4: __mpn_extract_double (dbl2mpn.c:56)
+==1362746==    by 0x4A3350E: __printf_fp_l (printf_fp.c:387)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Conditional jump or move depends on uninitialised value(s)
+==1362746==    at 0x4A33563: __printf_fp_l (printf_fp.c:428)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Conditional jump or move depends on uninitialised value(s)
+==1362746==    at 0x4A33586: __printf_fp_l (printf_fp.c:428)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Use of uninitialised value of size 8
+==1362746==    at 0x4A33EBF: __printf_fp_l (printf_fp.c:428)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Conditional jump or move depends on uninitialised value(s)
+==1362746==    at 0x4A335B9: __printf_fp_l (printf_fp.c:429)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Conditional jump or move depends on uninitialised value(s)
+==1362746==    at 0x4A335DC: __printf_fp_l (printf_fp.c:429)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Use of uninitialised value of size 8
+==1362746==    at 0x4A335DE: __printf_fp_l (printf_fp.c:429)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Conditional jump or move depends on uninitialised value(s)
+==1362746==    at 0x4A3360A: __printf_fp_l (printf_fp.c:430)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Conditional jump or move depends on uninitialised value(s)
+==1362746==    at 0x4A3362D: __printf_fp_l (printf_fp.c:430)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Use of uninitialised value of size 8
+==1362746==    at 0x4A3362F: __printf_fp_l (printf_fp.c:430)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Conditional jump or move depends on uninitialised value(s)
+==1362746==    at 0x4A3364D: __printf_fp_l (printf_fp.c:437)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Conditional jump or move depends on uninitialised value(s)
+==1362746==    at 0x4A33664: __printf_fp_l (printf_fp.c:454)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Use of uninitialised value of size 8
+==1362746==    at 0x4A34EAD: __printf_fp_l (printf_fp.c:462)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Use of uninitialised value of size 8
+==1362746==    at 0x4A2D49C: __mpn_lshift (lshift.S:59)
+==1362746==    by 0x4A34EB1: __printf_fp_l (printf_fp.c:462)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Use of uninitialised value of size 8
+==1362746==    at 0x4A2D49F: __mpn_lshift (lshift.S:60)
+==1362746==    by 0x4A34EB1: __printf_fp_l (printf_fp.c:462)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Conditional jump or move depends on uninitialised value(s)
+==1362746==    at 0x4A34EDD: __printf_fp_l (printf_fp.c:467)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Conditional jump or move depends on uninitialised value(s)
+==1362746==    at 0x4A336AA: __printf_fp_l (printf_fp.c:470)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Conditional jump or move depends on uninitialised value(s)
+==1362746==    at 0x484293F: memset (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1362746==    by 0x4A336C3: __printf_fp_l (printf_fp.c:470)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Conditional jump or move depends on uninitialised value(s)
+==1362746==    at 0x484298A: memset (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1362746==    by 0x4A336C3: __printf_fp_l (printf_fp.c:470)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Use of uninitialised value of size 8
+==1362746==    at 0x4842994: memset (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1362746==    by 0x4A336C3: __printf_fp_l (printf_fp.c:470)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Conditional jump or move depends on uninitialised value(s)
+==1362746==    at 0x48429AA: memset (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1362746==    by 0x4A336C3: __printf_fp_l (printf_fp.c:470)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Conditional jump or move depends on uninitialised value(s)
+==1362746==    at 0x4A3376E: __printf_fp_l (printf_fp.c:479)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Conditional jump or move depends on uninitialised value(s)
+==1362746==    at 0x4842A11: memmove (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1362746==    by 0x4A3372F: __printf_fp_l (printf_fp.c:526)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Conditional jump or move depends on uninitialised value(s)
+==1362746==    at 0x4842B8B: memmove (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1362746==    by 0x4A3372F: __printf_fp_l (printf_fp.c:526)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Conditional jump or move depends on uninitialised value(s)
+==1362746==    at 0x4842BA1: memmove (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1362746==    by 0x4A3372F: __printf_fp_l (printf_fp.c:526)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Use of uninitialised value of size 8
+==1362746==    at 0x4842AD9: memmove (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1362746==    by 0x4A3372F: __printf_fp_l (printf_fp.c:526)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Conditional jump or move depends on uninitialised value(s)
+==1362746==    at 0x4A3373B: __printf_fp_l (printf_fp.c:542)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Conditional jump or move depends on uninitialised value(s)
+==1362746==    at 0x4A33741: __printf_fp_l (printf_fp.c:542)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Use of uninitialised value of size 8
+==1362746==    at 0x4A2CD5A: __mpn_cmp (cmp.c:37)
+==1362746==    by 0x4A347BF: __printf_fp_l (printf_fp.c:542)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Use of uninitialised value of size 8
+==1362746==    at 0x4A2CD5E: __mpn_cmp (cmp.c:38)
+==1362746==    by 0x4A347BF: __printf_fp_l (printf_fp.c:542)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Conditional jump or move depends on uninitialised value(s)
+==1362746==    at 0x4A2CD65: __mpn_cmp (cmp.c:39)
+==1362746==    by 0x4A347BF: __printf_fp_l (printf_fp.c:542)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Conditional jump or move depends on uninitialised value(s)
+==1362746==    at 0x4A347C6: __printf_fp_l (printf_fp.c:542)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Conditional jump or move depends on uninitialised value(s)
+==1362746==    at 0x4842A11: memmove (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1362746==    by 0x4A337D4: __printf_fp_l (printf_fp.c:545)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Use of uninitialised value of size 8
+==1362746==    at 0x4842AD6: memmove (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1362746==    by 0x4A337D4: __printf_fp_l (printf_fp.c:545)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Use of uninitialised value of size 8
+==1362746==    at 0x4842AD9: memmove (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1362746==    by 0x4A337D4: __printf_fp_l (printf_fp.c:545)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Conditional jump or move depends on uninitialised value(s)
+==1362746==    at 0x4842AE4: memmove (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1362746==    by 0x4A337D4: __printf_fp_l (printf_fp.c:545)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Use of uninitialised value of size 8
+==1362746==    at 0x4A337DD: __printf_fp_l (printf_fp.c:546)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Use of uninitialised value of size 8
+==1362746==    at 0x4A2DB68: __mpn_mul_1 (mul_1.S:36)
+==1362746==    by 0x4A2D91C: __mpn_mul (mul.c:81)
+==1362746==    by 0x4A33798: __printf_fp_l (printf_fp.c:532)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Use of uninitialised value of size 8
+==1362746==    at 0x4A2DBF3: __mpn_mul_1 (mul_1.S:85)
+==1362746==    by 0x4A2D91C: __mpn_mul (mul.c:81)
+==1362746==    by 0x4A33798: __printf_fp_l (printf_fp.c:532)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Use of uninitialised value of size 8
+==1362746==    at 0x4A2DC62: __mpn_mul_1 (mul_1.S:117)
+==1362746==    by 0x4A2D91C: __mpn_mul (mul.c:81)
+==1362746==    by 0x4A33798: __printf_fp_l (printf_fp.c:532)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Use of uninitialised value of size 8
+==1362746==    at 0x4A2D929: __mpn_mul (mul.c:83)
+==1362746==    by 0x4A33798: __printf_fp_l (printf_fp.c:532)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Conditional jump or move depends on uninitialised value(s)
+==1362746==    at 0x4A337B9: __printf_fp_l (printf_fp.c:542)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Use of uninitialised value of size 8
+==1362746==    at 0x4A3382A: __printf_fp_l (printf_fp.c:564)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Use of uninitialised value of size 8
+==1362746==    at 0x4A33830: __printf_fp_l (printf_fp.c:564)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Use of uninitialised value of size 8
+==1362746==    at 0x4A33874: __printf_fp_l (printf_fp.c:564)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Use of uninitialised value of size 8
+==1362746==    at 0x4A33858: __printf_fp_l (printf_fp.c:564)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Use of uninitialised value of size 8
+==1362746==    at 0x4A3504E: __printf_fp_l (printf_fp.c:587)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Conditional jump or move depends on uninitialised value(s)
+==1362746==    at 0x4A3505D: __printf_fp_l (printf_fp.c:587)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Conditional jump or move depends on uninitialised value(s)
+==1362746==    at 0x4A35081: __printf_fp_l (printf_fp.c:609)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Use of uninitialised value of size 8
+==1362746==    at 0x4A2D5BC: __mpn_rshift (rshift.S:62)
+==1362746==    by 0x4A3509F: __printf_fp_l (printf_fp.c:627)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Use of uninitialised value of size 8
+==1362746==    at 0x4A2D5E1: __mpn_rshift (rshift.S:73)
+==1362746==    by 0x4A3509F: __printf_fp_l (printf_fp.c:627)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Conditional jump or move depends on uninitialised value(s)
+==1362746==    at 0x4A2D569: __mpn_rshift (rshift.S:31)
+==1362746==    by 0x4A350C0: __printf_fp_l (printf_fp.c:631)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Conditional jump or move depends on uninitialised value(s)
+==1362746==    at 0x4A2D590: __mpn_rshift (rshift.S:45)
+==1362746==    by 0x4A350C0: __printf_fp_l (printf_fp.c:631)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Conditional jump or move depends on uninitialised value(s)
+==1362746==    at 0x4A2D5BA: __mpn_rshift (rshift.S:61)
+==1362746==    by 0x4A350C0: __printf_fp_l (printf_fp.c:631)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Use of uninitialised value of size 8
+==1362746==    at 0x4A2D5BC: __mpn_rshift (rshift.S:62)
+==1362746==    by 0x4A350C0: __printf_fp_l (printf_fp.c:631)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Conditional jump or move depends on uninitialised value(s)
+==1362746==    at 0x4A2D5CD: __mpn_rshift (rshift.S:67)
+==1362746==    by 0x4A350C0: __printf_fp_l (printf_fp.c:631)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Use of uninitialised value of size 8
+==1362746==    at 0x4A2D5E1: __mpn_rshift (rshift.S:73)
+==1362746==    by 0x4A350C0: __printf_fp_l (printf_fp.c:631)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Use of uninitialised value of size 8
+==1362746==    at 0x4A350D5: __printf_fp_l (printf_fp.c:635)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Conditional jump or move depends on uninitialised value(s)
+==1362746==    at 0x4A350DB: __printf_fp_l (printf_fp.c:635)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Conditional jump or move depends on uninitialised value(s)
+==1362746==    at 0x4A32A82: hack_digit (printf_fp.c:175)
+==1362746==    by 0x4A33AFB: __printf_fp_l (printf_fp.c:933)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Use of uninitialised value of size 8
+==1362746==    at 0x4A2D280: __mpn_divrem (divrem.c:62)
+==1362746==    by 0x4A32AD7: hack_digit (printf_fp.c:179)
+==1362746==    by 0x4A33AFB: __printf_fp_l (printf_fp.c:933)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Use of uninitialised value of size 8
+==1362746==    at 0x4A2D283: __mpn_divrem (divrem.c:63)
+==1362746==    by 0x4A32AD7: hack_digit (printf_fp.c:179)
+==1362746==    by 0x4A33AFB: __printf_fp_l (printf_fp.c:933)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Conditional jump or move depends on uninitialised value(s)
+==1362746==    at 0x4A2D294: __mpn_divrem (divrem.c:65)
+==1362746==    by 0x4A32AD7: hack_digit (printf_fp.c:179)
+==1362746==    by 0x4A33AFB: __printf_fp_l (printf_fp.c:933)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Conditional jump or move depends on uninitialised value(s)
+==1362746==    at 0x4A2D2B1: __mpn_divrem (divrem.c:72)
+==1362746==    by 0x4A32AD7: hack_digit (printf_fp.c:179)
+==1362746==    by 0x4A33AFB: __printf_fp_l (printf_fp.c:933)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Use of uninitialised value of size 8
+==1362746==    at 0x4A2D303: __mpn_divrem (divrem.c:79)
+==1362746==    by 0x4A32AD7: hack_digit (printf_fp.c:179)
+==1362746==    by 0x4A33AFB: __printf_fp_l (printf_fp.c:933)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Use of uninitialised value of size 8
+==1362746==    at 0x4A32AE7: hack_digit (printf_fp.c:181)
+==1362746==    by 0x4A33AFB: __printf_fp_l (printf_fp.c:933)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Use of uninitialised value of size 8
+==1362746==    at 0x4A32AEB: hack_digit (printf_fp.c:182)
+==1362746==    by 0x4A33AFB: __printf_fp_l (printf_fp.c:933)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Use of uninitialised value of size 8
+==1362746==    at 0x4A32B12: hack_digit (printf_fp.c:185)
+==1362746==    by 0x4A33AFB: __printf_fp_l (printf_fp.c:933)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Conditional jump or move depends on uninitialised value(s)
+==1362746==    at 0x4A32B18: hack_digit (printf_fp.c:185)
+==1362746==    by 0x4A33AFB: __printf_fp_l (printf_fp.c:933)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Use of uninitialised value of size 8
+==1362746==    at 0x4A2DB68: __mpn_mul_1 (mul_1.S:36)
+==1362746==    by 0x4A32A96: hack_digit (printf_fp.c:196)
+==1362746==    by 0x4A33AFB: __printf_fp_l (printf_fp.c:933)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Use of uninitialised value of size 8
+==1362746==    at 0x4A2DB8C: __mpn_mul_1 (mul_1.S:52)
+==1362746==    by 0x4A32A96: hack_digit (printf_fp.c:196)
+==1362746==    by 0x4A33AFB: __printf_fp_l (printf_fp.c:933)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Conditional jump or move depends on uninitialised value(s)
+==1362746==    at 0x4A32A9A: hack_digit (printf_fp.c:197)
+==1362746==    by 0x4A33AFB: __printf_fp_l (printf_fp.c:933)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Use of uninitialised value of size 8
+==1362746==    at 0x4A32AAC: hack_digit (printf_fp.c:198)
+==1362746==    by 0x4A33AFB: __printf_fp_l (printf_fp.c:933)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Use of uninitialised value of size 8
+==1362746==    at 0x4A2D2C0: __mpn_divrem (divrem.c:73)
+==1362746==    by 0x4A32AD7: hack_digit (printf_fp.c:179)
+==1362746==    by 0x4A33AFB: __printf_fp_l (printf_fp.c:933)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Use of uninitialised value of size 8
+==1362746==    at 0x4A2D2C7: __mpn_divrem (divrem.c:73)
+==1362746==    by 0x4A32AD7: hack_digit (printf_fp.c:179)
+==1362746==    by 0x4A33AFB: __printf_fp_l (printf_fp.c:933)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Use of uninitialised value of size 8
+==1362746==    at 0x4A2D280: __mpn_divrem (divrem.c:62)
+==1362746==    by 0x4A32AD7: hack_digit (printf_fp.c:179)
+==1362746==    by 0x4A33BA8: __printf_fp_l (printf_fp.c:957)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Use of uninitialised value of size 8
+==1362746==    at 0x4A2D283: __mpn_divrem (divrem.c:63)
+==1362746==    by 0x4A32AD7: hack_digit (printf_fp.c:179)
+==1362746==    by 0x4A33BA8: __printf_fp_l (printf_fp.c:957)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Conditional jump or move depends on uninitialised value(s)
+==1362746==    at 0x4A2D294: __mpn_divrem (divrem.c:65)
+==1362746==    by 0x4A32AD7: hack_digit (printf_fp.c:179)
+==1362746==    by 0x4A33BA8: __printf_fp_l (printf_fp.c:957)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Use of uninitialised value of size 8
+==1362746==    at 0x4A2D303: __mpn_divrem (divrem.c:79)
+==1362746==    by 0x4A32AD7: hack_digit (printf_fp.c:179)
+==1362746==    by 0x4A33BA8: __printf_fp_l (printf_fp.c:957)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Use of uninitialised value of size 8
+==1362746==    at 0x4A32AE7: hack_digit (printf_fp.c:181)
+==1362746==    by 0x4A33BA8: __printf_fp_l (printf_fp.c:957)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Use of uninitialised value of size 8
+==1362746==    at 0x4A32AEB: hack_digit (printf_fp.c:182)
+==1362746==    by 0x4A33BA8: __printf_fp_l (printf_fp.c:957)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Use of uninitialised value of size 8
+==1362746==    at 0x4A32B12: hack_digit (printf_fp.c:185)
+==1362746==    by 0x4A33BA8: __printf_fp_l (printf_fp.c:957)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Conditional jump or move depends on uninitialised value(s)
+==1362746==    at 0x4A32B18: hack_digit (printf_fp.c:185)
+==1362746==    by 0x4A33BA8: __printf_fp_l (printf_fp.c:957)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Use of uninitialised value of size 8
+==1362746==    at 0x4A2D280: __mpn_divrem (divrem.c:62)
+==1362746==    by 0x4A32AD7: hack_digit (printf_fp.c:179)
+==1362746==    by 0x4A33F8A: __printf_fp_l (printf_fp.c:970)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Use of uninitialised value of size 8
+==1362746==    at 0x4A2D283: __mpn_divrem (divrem.c:63)
+==1362746==    by 0x4A32AD7: hack_digit (printf_fp.c:179)
+==1362746==    by 0x4A33F8A: __printf_fp_l (printf_fp.c:970)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Conditional jump or move depends on uninitialised value(s)
+==1362746==    at 0x4A2D294: __mpn_divrem (divrem.c:65)
+==1362746==    by 0x4A32AD7: hack_digit (printf_fp.c:179)
+==1362746==    by 0x4A33F8A: __printf_fp_l (printf_fp.c:970)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Use of uninitialised value of size 8
+==1362746==    at 0x4A2D303: __mpn_divrem (divrem.c:79)
+==1362746==    by 0x4A32AD7: hack_digit (printf_fp.c:179)
+==1362746==    by 0x4A33F8A: __printf_fp_l (printf_fp.c:970)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Use of uninitialised value of size 8
+==1362746==    at 0x4A32AE7: hack_digit (printf_fp.c:181)
+==1362746==    by 0x4A33F8A: __printf_fp_l (printf_fp.c:970)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Use of uninitialised value of size 8
+==1362746==    at 0x4A32AEB: hack_digit (printf_fp.c:182)
+==1362746==    by 0x4A33F8A: __printf_fp_l (printf_fp.c:970)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Use of uninitialised value of size 8
+==1362746==    at 0x4A32B12: hack_digit (printf_fp.c:185)
+==1362746==    by 0x4A33F8A: __printf_fp_l (printf_fp.c:970)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Conditional jump or move depends on uninitialised value(s)
+==1362746==    at 0x4A32B18: hack_digit (printf_fp.c:185)
+==1362746==    by 0x4A33F8A: __printf_fp_l (printf_fp.c:970)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Use of uninitialised value of size 8
+==1362746==    at 0x4A34FB8: __printf_fp_l (printf_fp.c:974)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Conditional jump or move depends on uninitialised value(s)
+==1362746==    at 0x4A34FBC: __printf_fp_l (printf_fp.c:974)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Conditional jump or move depends on uninitialised value(s)
+==1362746==    at 0x4A34284: __printf_fp_l (printf_fp.c:1157)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Conditional jump or move depends on uninitialised value(s)
+==1362746==    at 0x4A344DD: __printf_fp_l (printf_fp.c:1220)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Conditional jump or move depends on uninitialised value(s)
+==1362746==    at 0x4A344C3: __printf_fp_l (printf_fp.c:1222)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== Conditional jump or move depends on uninitialised value(s)
+==1362746==    at 0x4A6688F: _IO_new_file_xsputn (fileops.c:1219)
+==1362746==    by 0x4A6688F: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1197)
+==1362746==    by 0x4A34577: __printf_fp_l (printf_fp.c:1246)
+==1362746==    by 0x4A4E639: __vfprintf_internal (vfprintf-internal.c:1687)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746== 
+==1362746== 
+==1362746== More than 100 errors detected.  Subsequent errors
+==1362746== will still be recorded, but in less detail than before.
+==1362746== Syscall param write(buf) points to uninitialised byte(s)
+==1362746==    at 0x4AE51E7: write (write.c:26)
+==1362746==    by 0x4A6600C: _IO_file_write@@GLIBC_2.2.5 (fileops.c:1181)
+==1362746==    by 0x4A67AD0: new_do_write (fileops.c:449)
+==1362746==    by 0x4A67AD0: _IO_new_do_write (fileops.c:426)
+==1362746==    by 0x4A67AD0: _IO_do_write@@GLIBC_2.2.5 (fileops.c:423)
+==1362746==    by 0x4A66834: _IO_new_file_xsputn (fileops.c:1244)
+==1362746==    by 0x4A66834: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1197)
+==1362746==    by 0x4A4E165: __vfprintf_internal (vfprintf-internal.c:1719)
+==1362746==    by 0x4A38EBE: printf (printf.c:33)
+==1362746==    by 0x1094AA: main (stats.c:71)
+==1362746==  Address 0x4bcb85c is 12 bytes inside a block of size 1,024 alloc'd
+==1362746==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1362746==    by 0x4A58E83: _IO_file_doallocate (filedoalloc.c:101)
+==1362746==    by 0x4A6904F: _IO_doallocbuf (genops.c:347)
+==1362746==    by 0x4A680AF: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:745)
+==1362746==    by 0x4A66834: _IO_new_file_xsputn (fileops.c:1244)
+==1362746==    by 0x4A66834: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1197)
+==1362746==    by 0x4A5B677: puts (ioputs.c:40)
+==1362746==    by 0x10936C: main (stats.c:60)
+==1362746== 
+==1362746== 
+==1362746== HEAP SUMMARY:
+==1362746==     in use at exit: 640 bytes in 1 blocks
+==1362746==   total heap usage: 7 allocs, 6 frees, 10,888 bytes allocated
+==1362746== 
+==1362746== LEAK SUMMARY:
+==1362746==    definitely lost: 640 bytes in 1 blocks
+==1362746==    indirectly lost: 0 bytes in 0 blocks
+==1362746==      possibly lost: 0 bytes in 0 blocks
+==1362746==    still reachable: 0 bytes in 0 blocks
+==1362746==         suppressed: 0 bytes in 0 blocks
+==1362746== Rerun with --leak-check=full to see details of leaked memory
+==1362746== 
+==1362746== Use --track-origins=yes to see where uninitialised values come from
+==1362746== For lists of detected and suppressed errors, rerun with: -s
+==1362746== ERROR SUMMARY: 398 errors from 101 contexts (suppressed: 0 from 0)
+
+

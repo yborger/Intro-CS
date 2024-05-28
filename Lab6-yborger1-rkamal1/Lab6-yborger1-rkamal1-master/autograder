@@ -1,0 +1,375 @@
+gcc -g -Wall -Wvla -Werror -Wno-error=unused-variable -o cs31shell cs31shell.c /home/newhall/public/cs31/parsecmd.o
+gcc -g -Wall -Wvla -Werror -Wno-error=unused-variable -o sleeper sleeper.c
+-------- forground -------
+[1;36mcs31shell> [0m/home/scout/admin31/graders/Lab6-1/Lab6-yborger1-rkamal1
+[1;36mcs31shell> [0mtotal 92
+drwx------  3 scout users  4096 May  5 09:52 .
+drwx------ 38 scout users  4096 May  5 09:24 ..
+drwx------  8 scout users  4096 May  4 13:27 .git
+-rw-------  1 scout users   424 May  4 13:27 .gitignore
+-rw-------  1 scout users    43 May  4 13:27 COLLABORATORS
+-rw-------  1 scout users   342 May  4 13:27 Makefile
+-rw-------  1 scout users  1163 May  4 13:27 README.adoc
+-rw-------  1 scout users   319 May  5 09:52 autograder
+-rwx------  1 scout users 21896 May  5 09:52 cs31shell
+-rw-------  1 scout users  5966 May  4 13:27 cs31shell.c
+-rw-------  1 scout users  1567 May  4 13:27 parsecmd.h
+-rwx------  1 scout users 19568 May  5 09:52 sleeper
+-rw-------  1 scout users   644 May  4 13:27 sleeper.c
+[1;36mcs31shell> [0m[1;36mcs31shell> [0m    PID TTY          TIME CMD
+1703519 pts/1    00:00:00 bash
+1704006 pts/1    00:00:00 python
+1707696 pts/1    00:00:00 sh
+1707697 pts/1    00:00:00 cs31shell
+1707698 pts/1    00:00:00 tee
+1707702 pts/1    00:00:00 ps
+[1;36mcs31shell> [0mLIBDIR=/home/newhall/public/cs31
+CC = gcc
+CFLAGS = -g -Wall -Wvla -Werror -Wno-error=unused-variable
+
+TARGET = cs31shell
+
+.PHONY: clean
+
+all: $(TARGET) sleeper
+
+$(TARGET) : $(TARGET).c  
+	$(CC) $(CFLAGS) -o $(TARGET) $(TARGET).c $(LIBDIR)/parsecmd.o
+
+sleeper: sleeper.c
+	$(CC) $(CFLAGS) -o sleeper sleeper.c
+
+clean:
+	$(RM) $(TARGET) sleeper 
+[1;36mcs31shell> [0mbye bye
+--------------------
+-------- background -------
+[1;36mcs31shell> [0m[1;36mcs31shell> [0m[1;36mcs31shell> [0m    PID TTY          TIME CMD
+1703519 pts/1    00:00:00 bash
+1704006 pts/1    00:00:00 python
+1707710 pts/1    00:00:00 sh
+1707711 pts/1    00:00:00 cs31shell
+1707712 pts/1    00:00:00 tee
+1707713 pts/1    00:00:00 sleeper
+1707714 pts/1    00:00:00 sleeper
+1707715 pts/1    00:00:00 ps
+[1;36mcs31shell> [0mCOLLABORATORS
+Makefile
+README.adoc
+autograder
+cs31shell
+cs31shell.c
+parsecmd.h
+sleeper
+sleeper.c
+[1;36mcs31shell> [0m    PID TTY          TIME CMD
+1703519 pts/1    00:00:00 bash
+1704006 pts/1    00:00:00 python
+1707710 pts/1    00:00:00 sh
+1707711 pts/1    00:00:00 cs31shell
+1707712 pts/1    00:00:00 tee
+1707713 pts/1    00:00:00 sleeper
+1707714 pts/1    00:00:00 sleeper
+1707717 pts/1    00:00:00 ps
+[1;36mcs31shell> [0m/home/scout/admin31/graders/Lab6-1/Lab6-yborger1-rkamal1
+[1;36mcs31shell> [0m[1;36mcs31shell> [0m    PID TTY          TIME CMD
+1703519 pts/1    00:00:00 bash
+1704006 pts/1    00:00:00 python
+1707710 pts/1    00:00:00 sh
+1707711 pts/1    00:00:00 cs31shell
+1707712 pts/1    00:00:00 tee
+1707713 pts/1    00:00:00 sleeper
+1707714 pts/1    00:00:00 sleeper
+1707719 pts/1    00:00:00 sleeper
+1707720 pts/1    00:00:00 ps
+[1;36mcs31shell> [0mbye bye
+--------------------
+-------- history -------
+[1;36mcs31shell> [0m[1;36mcs31shell> [0m    PID TTY          TIME CMD
+1703519 pts/1    00:00:00 bash
+1704006 pts/1    00:00:00 python
+1707731 pts/1    00:00:00 sh
+1707732 pts/1    00:00:00 cs31shell
+1707733 pts/1    00:00:00 tee
+1707734 pts/1    00:00:00 sleeper
+1707735 pts/1    00:00:00 ps
+[1;36mcs31shell> [0m[1;36mcs31shell> [0m    PID TTY          TIME CMD
+1703519 pts/1    00:00:00 bash
+1704006 pts/1    00:00:00 python
+1707731 pts/1    00:00:00 sh
+1707732 pts/1    00:00:00 cs31shell
+1707733 pts/1    00:00:00 tee
+1707734 pts/1    00:00:00 sleeper
+1707736 pts/1    00:00:00 sleeper
+1707737 pts/1    00:00:00 ps
+[1;36mcs31shell> [0mCOLLABORATORS
+Makefile
+README.adoc
+autograder
+cs31shell
+cs31shell.c
+parsecmd.h
+sleeper
+sleeper.c
+[1;36mcs31shell> [0mcat: foo.txt: No such file or directory
+[1;36mcs31shell> [0m0: ./sleeper 5 &
+1: ps
+2: ./sleeper 5 &
+3: ps
+4: ls
+5: cat foo.txt
+6: history
+[1;36mcs31shell> [0m    PID TTY          TIME CMD
+1703519 pts/1    00:00:00 bash
+1704006 pts/1    00:00:00 python
+1707731 pts/1    00:00:00 sh
+1707732 pts/1    00:00:00 cs31shell
+1707733 pts/1    00:00:00 tee
+1707734 pts/1    00:00:00 sleeper
+1707736 pts/1    00:00:00 sleeper
+1707740 pts/1    00:00:00 ps
+[1;36mcs31shell> [0m 09:52:52 up 39 days,  1:01,  3 users,  load average: 0.04, 0.03, 0.07
+USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
+scout    pts/0    108.52.214.186   09:13   32:10   0.17s  0.17s -bash
+scout    pts/1    108.52.214.186   09:13   27:08   0.50s  0.00s w
+scout    pts/2    108.52.214.186   09:19   23:24   0.33s  0.33s -bash
+[1;36mcs31shell> [0m./sleeper 5 &
+ps
+./sleeper 5 &
+ps
+ls
+cat foo.txt
+history
+!3
+w
+cat ../testhistory
+history
+history
+!2
+history
+!8
+history
+!5
+history
+!12
+ps
+history
+
+ls
+
+ps
+history
+exit
+[1;36mcs31shell> [0m1: ps
+2: ./sleeper 5 &
+3: ps
+4: ls
+5: cat foo.txt
+6: history
+7: ps
+8: w
+9: cat ../testhistory
+10: history
+[1;36mcs31shell> [0m2: ./sleeper 5 &
+3: ps
+4: ls
+5: cat foo.txt
+6: history
+7: ps
+8: w
+9: cat ../testhistory
+10: history
+11: history
+[1;36mcs31shell> [0m[1;36mcs31shell> [0m4: ls
+5: cat foo.txt
+6: history
+7: ps
+8: w
+9: cat ../testhistory
+10: history
+11: history
+12: ./sleeper 5 &
+13: history
+[1;36mcs31shell> [0m 09:52:52 up 39 days,  1:01,  3 users,  load average: 0.04, 0.03, 0.07
+USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
+scout    pts/0    108.52.214.186   09:13   32:10   0.17s  0.17s -bash
+scout    pts/1    108.52.214.186   09:13   27:08   0.50s  0.00s ./sleeper 5
+scout    pts/2    108.52.214.186   09:19   23:24   0.33s  0.33s -bash
+[1;36mcs31shell> [0m6: history
+7: ps
+8: w
+9: cat ../testhistory
+10: history
+11: history
+12: ./sleeper 5 &
+13: history
+14: w
+15: history
+[1;36mcs31shell> [0m!5: not found
+[1;36mcs31shell> [0m7: ps
+8: w
+9: cat ../testhistory
+10: history
+11: history
+12: ./sleeper 5 &
+13: history
+14: w
+15: history
+16: history
+[1;36mcs31shell> [0m[1;36mcs31shell> [0m    PID TTY          TIME CMD
+1703519 pts/1    00:00:00 bash
+1704006 pts/1    00:00:00 python
+1707731 pts/1    00:00:00 sh
+1707732 pts/1    00:00:00 cs31shell
+1707733 pts/1    00:00:00 tee
+1707734 pts/1    00:00:00 sleeper
+1707736 pts/1    00:00:00 sleeper
+1707743 pts/1    00:00:00 sleeper
+1707745 pts/1    00:00:00 sleeper
+1707746 pts/1    00:00:00 ps
+[1;36mcs31shell> [0m10: history
+11: history
+12: ./sleeper 5 &
+13: history
+14: w
+15: history
+16: history
+17: ./sleeper 5 &
+18: ps
+19: history
+[1;36mcs31shell> [0mError: cmdline is empty--------------------
+-------- bad -------
+[1;36mcs31shell> [0mhello: Command not found.
+[1;36mcs31shell> [0myohoho: Command not found.
+[1;36mcs31shell> [0mlotsofoptions: Command not found.
+[1;36mcs31shell> [0m    PID TTY          TIME CMD
+1703519 pts/1    00:00:00 bash
+1704006 pts/1    00:00:00 python
+1707758 pts/1    00:00:00 sh
+1707759 pts/1    00:00:00 cs31shell
+1707760 pts/1    00:00:00 tee
+1707764 pts/1    00:00:00 ps
+[1;36mcs31shell> [0mbye bye
+--------------------
+-------- valgrind -------
+==1707772== Memcheck, a memory error detector
+==1707772== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==1707772== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==1707772== Command: ./cs31shell
+==1707772== 
+[1;36mcs31shell> [0mCOLLABORATORS
+Makefile
+README.adoc
+autograder
+cs31shell
+cs31shell.c
+parsecmd.h
+sleeper
+sleeper.c
+[1;36mcs31shell> [0mtotal 96
+drwx------  3 scout users  4096 May  5 09:52 .
+drwx------ 38 scout users  4096 May  5 09:24 ..
+drwx------  8 scout users  4096 May  4 13:27 .git
+-rw-------  1 scout users   424 May  4 13:27 .gitignore
+-rw-------  1 scout users    43 May  4 13:27 COLLABORATORS
+-rw-------  1 scout users   342 May  4 13:27 Makefile
+-rw-------  1 scout users  1163 May  4 13:27 README.adoc
+-rw-------  1 scout users  7405 May  5 09:53 autograder
+-rwx------  1 scout users 21896 May  5 09:52 cs31shell
+-rw-------  1 scout users  5966 May  4 13:27 cs31shell.c
+-rw-------  1 scout users  1567 May  4 13:27 parsecmd.h
+-rwx------  1 scout users 19568 May  5 09:52 sleeper
+-rw-------  1 scout users   644 May  4 13:27 sleeper.c
+[1;36mcs31shell> [0m[1;36mcs31shell> [0m[1;36mcs31shell> [0m    PID TTY          TIME CMD
+1703519 pts/1    00:00:00 bash
+1704006 pts/1    00:00:00 python
+1707771 pts/1    00:00:00 sh
+1707772 pts/1    00:00:00 memcheck-amd64-
+1707773 pts/1    00:00:00 tee
+1707776 pts/1    00:00:00 sleeper
+1707777 pts/1    00:00:00 sleeper
+1707778 pts/1    00:00:00 ps
+[1;36mcs31shell> [0m0: ls
+1: ls -la
+2: ./sleeper 5 &
+3: ./sleeper 5 &
+4: ps
+5: history
+[1;36mcs31shell> [0m[1;36mcs31shell> [0m0: ls
+1: ls -la
+2: ./sleeper 5 &
+3: ./sleeper 5 &
+4: ps
+5: history
+6: ./sleeper 5 &
+7: history
+[1;36mcs31shell> [0m    PID TTY          TIME CMD
+1703519 pts/1    00:00:00 bash
+1704006 pts/1    00:00:00 python
+1707771 pts/1    00:00:00 sh
+1707772 pts/1    00:00:00 memcheck-amd64-
+1707773 pts/1    00:00:00 tee
+1707776 pts/1    00:00:00 sleeper
+1707777 pts/1    00:00:00 sleeper
+1707779 pts/1    00:00:00 sleeper
+1707780 pts/1    00:00:00 ps
+[1;36mcs31shell> [0m/home/scout/admin31/graders/Lab6-1/Lab6-yborger1-rkamal1
+[1;36mcs31shell> [0mhello: Command not found.
+==1707782== 
+==1707782== HEAP SUMMARY:
+==1707782==     in use at exit: 0 bytes in 0 blocks
+==1707782==   total heap usage: 2 allocs, 2 frees, 12,288 bytes allocated
+==1707782== 
+==1707782== All heap blocks were freed -- no leaks are possible
+==1707782== 
+==1707782== For lists of detected and suppressed errors, rerun with: -s
+==1707782== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+[1;36mcs31shell> [0mcat: foo.txt: No such file or directory
+[1;36mcs31shell> [0mcat: testmix: No such file or directory
+[1;36mcs31shell> [0m 09:53:03 up 39 days,  1:01,  3 users,  load average: 0.04, 0.03, 0.07
+USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
+scout    pts/0    108.52.214.186   09:13   32:21   0.17s  0.17s -bash
+scout    pts/1    108.52.214.186   09:13   27:19   0.84s  0.00s w
+scout    pts/2    108.52.214.186   09:19   23:35   0.33s  0.33s -bash
+[1;36mcs31shell> [0m5: history
+6: ./sleeper 5 &
+7: history
+8: ps
+9: pwd
+10: hello
+11: cat foo.txt
+12: cat testmix
+13: w
+14: history
+[1;36mcs31shell> [0m    PID TTY          TIME CMD
+1703519 pts/1    00:00:00 bash
+1704006 pts/1    00:00:00 python
+1707771 pts/1    00:00:00 sh
+1707772 pts/1    00:00:00 memcheck-amd64-
+1707773 pts/1    00:00:00 tee
+1707776 pts/1    00:00:00 sleeper
+1707777 pts/1    00:00:00 sleeper
+1707779 pts/1    00:00:00 sleeper
+1707786 pts/1    00:00:00 ps
+[1;36mcs31shell> [0m!100: not found
+[1;36mcs31shell> [0m7: history
+8: ps
+9: pwd
+10: hello
+11: cat foo.txt
+12: cat testmix
+13: w
+14: history
+15: ps
+16: history
+[1;36mcs31shell> [0mbye bye
+==1707772== 
+==1707772== HEAP SUMMARY:
+==1707772==     in use at exit: 0 bytes in 0 blocks
+==1707772==   total heap usage: 2 allocs, 2 frees, 12,288 bytes allocated
+==1707772== 
+==1707772== All heap blocks were freed -- no leaks are possible
+==1707772== 
+==1707772== For lists of detected and suppressed errors, rerun with: -s
+==1707772== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+--------------------

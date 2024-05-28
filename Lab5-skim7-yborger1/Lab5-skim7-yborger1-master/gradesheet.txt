@@ -1,0 +1,33 @@
+
+
+Lab5 : Game of Life
+
+Repo skim7-yborger1
+
+>>  Initialization and output
+ Program does not reprint board at the end. Board representation is
+rotated.
+
+>>  Simulation
+ Something is off with the simulation as observed in more complex forms
+(e.g. grower or glider tests). Oscillator works, including over edges
+and corners.
+
+>>  Timing & valgrind
+ Valgrind memory leaks
+-------------------------
+Correctness (9pts) 7
+
+>>  Program style comments
+ Top-level comment is missing description
+
+-------------------------
+Program style (1pts) 0.5
+
+-------------------------
+Total (10pts)
+ 7.5
+
+>> General comments
+ Several small errors, but no big-idea misunderstandings.
+

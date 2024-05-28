@@ -1,0 +1,15 @@
+# MAC, vim, emacs goofiness
+.DS_STORE
+.DS_STORE?
+.dropbox.attr
+*~
+*#
+.#*
+.nfs*
+.*.sw?
+*.bak
+
+# Executables
+*.exe
+*.jar
+

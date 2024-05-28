@@ -1,0 +1,29 @@
+
+
+Lab3 : Building Circuits and ALU
+
+Repo yborger1-akazako1
+
+>>  ALU operations comments
+ 
+
+>>  ALU flags comments
+ Double check on various examples and operations to ensure that flags
+match expected behavior.
+
+>>  ALU layout & implementation comments
+ 
+
+>>  Checkpoint comments
+ X: 1111 Y: 01 C-in: 0 inputs result in correct c-out (1) but incorrect
+sum (1110 instead of 0000)
+
++ Checkpoint addition
+ 0.5
+
+-------------------------
+Total (10pts max) 7.5
+
+>>  misc & general comments
+ 
+

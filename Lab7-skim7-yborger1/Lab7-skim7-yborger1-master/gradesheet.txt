@@ -1,0 +1,32 @@
+
+
+Lab7 : Parallel Game of Life
+
+Repo skim7-yborger1
+
+>>  partitioning comments
+ Confusion between output mode command-line argument and partition
+command-line argument. Partition is never printed.
+
+>>  parallel execution comments
+ 
+
+>>  live cell count comments
+ 
+
+-------------------------
+Correctness (8.5pts) 7
+
+>>  program style & valgrind comments
+ Include a program description in the file header, and update it when
+code is reused (still references Lab 5). Wrapped lines.
+
+-------------------------
+Program style & valgrind (1.5pts) 1
+
+-------------------------
+Total (10pts) 8
+
+>> misc & general comments
+ 
+

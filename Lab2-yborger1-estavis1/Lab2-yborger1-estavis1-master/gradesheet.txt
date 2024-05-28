@@ -1,0 +1,33 @@
+
+
+Lab2 : C Arrays and Sorting
+
+Repo yborger1-estavis1
+
+>>  file input comments
+ 
+
+>>  printing comments
+ 
+
+>>  sorting comments
+ 
+
+>>  user input error detection
+ 
+
+-------------------------
+Correctness (9pts) 9
+
+>>  program style comments
+ 
+
+-------------------------
+Program style (1pts) 1
+
+-------------------------
+Total (10pts) 10
+
+>> misc & general comments
+ Great job!
+

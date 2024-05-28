@@ -1,0 +1,24 @@
+
+
+Lab6 : C Shell Program
+
+Repo yborger1-rkamal1
+
+>>  correctness comments
+ Shell exits when provided an invalid !num or an empty command line.
+
+-------------------------
+Correctness (8.5pts) 8
+
+>>  program style & valgrind comments
+ 
+
+-------------------------
+Program style & valgrind (1.5pts) 1.5
+
+-------------------------
+Total (10pts) 9.5
+
+>> misc & general comments
+ Good job!
+

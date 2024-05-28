@@ -1,0 +1,63 @@
+TODO: (1) Complete this side (partitioning function), implement, & test
+      (2) Complete reverse side (overall program design), implement, & test
+(To print, run 'lpr design_worksheet')
+********************************************************************************
+(1) Board-partitioning function design
+    Reminder: Look at the whole LAB WRITEUP for information on how partitioning
+              should work and suggestions on how to get started.
+Q1: What parameters does this function need and what does it return?  Design
+    its prototype?
+
+    (Pro tip: pass-by-pointer params are a way to "return" multiple values.)
+    1. how_parallelize, an integer that indicates whether the partitioning is a row or column based
+    partitioning
+    2. num_threads: An integer that indicates how many threads are we partitioning.
+    3. data: type struct that has access to the dimension of the GOL, and the 2D array.
+
+Q2: What does this function do?  Design your function's high-level control
+    flow, and then refine in details.
+
+    This function will partition the boards based on the parameters given, in order
+    to use parallelization to play the game of life. The threads will be executing
+    different parts of the board.
+
+    how_parallelize: will indicate how the partitioning is set based on row or
+    column.
+    num_threads: will indicate the number of Threads
+    data: the various variables within the struct will serve as a blueprint for
+    playing the Game of Life.
+
+Q3: How are you going to test your function's correctness?  What are the
+    different config and command-line options you want to test?
+
+    We are going to test the function's correctness by printing the ID of the thread
+    to ensure that it is executing. At the end, we will also run the parallel version and the
+    sequential version to ensure that we are producing the same results.
+
+(2) Overall parallel gol program design
+    Reminder: Look at the LAB WRITEUP to understand requirements & control flow
+
+Q1: What changes need to be made to main's control flow for pthreads?
+
+    We need to parse the additional command line arguments and make calls to pthread_create.
+
+Q2: What additional state do you need to add to the parallel solution?
+    New globals or data structures?  Modifications to existing data structures?
+
+    Global variable: live cells counter. Given that the threads are going to need
+    not each copy, but access to one single global variable so that each thread could
+    provide their count of the live cells and total them all together.
+
+
+Q3: What changes need to be made to parallelize play_gol?  Design the
+    high-level control flow of the pthread version of play_gol, and refine as
+    needed.  Do you need any new helper functions?  Modify existing ones?
+    Any parts only 1 thread performs?
+
+    The function type and parameters will need to change to suit parallelization.
+    The function type will be a void* and will pass in parameter void*args.
+
+Q4: Does your solution need synchronization?  How many and what type?  Where?
+
+    Solution needs synchronization when we are counting up the number of live cells
+    that each thread will indicate for each section.

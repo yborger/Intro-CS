@@ -1,0 +1,85 @@
+Directions: Complete this worksheet for a function before you start coding it.
+==========  (to print:  lpr design_worksheet)
+* It will help you plan out the design of each of your functions. 
+* You must bring this worksheet with you to a ninja session & office hours 
+TODO: (1) Fill out worksheet for parse_cmd() then implement & test it
+      (2) Fill out worksheet for parse_cmd_dynamic(), then implement & test it
+--------------------------------------
+(1) parse_cmd() design questions Q1-Q3
+--------------------------------------
+Reminders: A. Look at the LAB REQUIREMENTS and the parsecmd.h file for 
+              details on exactly what this function should do. 
+           B. This function should use the global variable cmdline_copy that 
+              is already declared in the .c file 
+
+
+Q1: What will this function do?  Write an outline of what it will need to do 
+    at a high level, and then refine and fill in details. 
+
+The function will separate the command line into different arguments that are
+put into an array, and returns a value that determines whether the function
+worked as expected. Order-wise, the function will first read through the
+command line, setting the space after each token to be a null-terminating
+character ('\0'). After this, each bucket will point to the starting index
+of each token. We will use the last argument from the command line to determine
+how the command will run in the shell. The function will return whether the
+command line was null, empty, or filled in as expected.
+
+Q2: What logical chunks of functionality should be broken into helper
+    functions? Note what functions you will define, what they accept as 
+    parameters, and what their return values are.  
+
+We implemented a function for finding the index of the next space, given an
+array of characters. It takes in the array itself and returns the index i
+of the next whitespace character, setting the start of the array to have
+index zero. We used next_space by passing in pointers to our cmdline_copy
+array to see where the next spaces were once we found a token.
+
+Q3: What are the local variables this function needs (and what are their 
+    exact types) that this function needs to perform these steps? 
+
+We used a local int variable "tokens" to keep track of the number of
+tokens in argv so that we know which bucket should point to the next
+token (or to NULL).
+
+
+----------------------------------
+(2)parse_cmd_dynamic()design questions Q1-Q3
+--------------------------------------
+Reminders: A. Look at the LAB REQUIREMENTS and the parsecmd.h file for 
+              details on exactly what this function should do. 
+           B. This function SHOULD NOT use the global variable cmdline_copy 
+
+
+
+Q1: What will this function do?  Write an outline of what it will need to do 
+    at a high level, and then refine and fill in details. 
+
+This function will separate the command line into multiple arguments, and 
+put those arguments into a 2D array argv** that it has locally created.
+The difference between this function and the previous one is that there is
+no limit to the number of chars/arguments (MAXARGS/MAXLINE in the previous
+function). To get around this, we had to loop through the characters in the
+command line more than once, in order to find the number of tokens, their
+sizes, and their starting indices. Then we allocated enough memory in each
+bucket to hold a token, and we used strncpy to copy as many characters from
+the cmdline as the size of the token each bucket should point to.
+
+Q2: What logical chunks of functionality should be broken into helper
+    functions? Note what functions you will define, what they accept as 
+    parameters, and what their return values are.  
+We used the same next_space function as before. We also added a next_alnum
+function to find the index of the next alphanumeric character given an array
+of char. This helped us find where tokens start and end, and next_alnum worked
+similarly to next_space. We also used find_num_tokens to initially loop through
+the array and find the total number of tokens separated by whitespaces.
+
+Q3: What are the local variables this function needs (and what are their 
+    exact types) that this function needs to perform these steps?
+A local variable that is definitely needed is the argv array as it must
+be dynamically allocated during this function. We need a local variable to
+count the number of tokens required, as well as to keep track of where a token
+begins and a token's size. We also needed to copy the cmdline array so that we
+could use our next_space function on it, because cmdline was an array of
+'const char'.
+
